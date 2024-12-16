@@ -18,6 +18,7 @@ func main() {
 
 	roundRobin := &balancer.RoundRobin{Backends: backends}
 
+	// Spin up goroutine workers for checking backend Health.
 	go func() {
 		for {
 			for _, backend := range backends {
